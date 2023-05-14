@@ -15,11 +15,16 @@ diff2html: true
 <style>dl, dd { margin-bottom: 0; }</style>
 
 {{site.alert.secondary}}
-  <h4 class="no_toc">What's the point?</h4>
-
+<!-- 
+<h4 class="no_toc">What's the point?</h4>
   * Widgets are classes used to build UIs.
   * Widgets are used for both layout and UI elements.
   * Compose simple widgets to build complex widgets.
+-->
+<h4 class="no_toc">ポイント</h4>
+  * ウィジェットはUIを構築するために使用されるクラスです。
+  * ウィジェットはレイアウトとUI要素の両方に使用されます。
+  * シンプルなウィジェットを組み合わせて、複雑なウィジェットを構築することができます。
 {{site.alert.end}}
 
 The core of Flutter's layout mechanism is widgets. In Flutter, almost
