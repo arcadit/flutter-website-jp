@@ -28,12 +28,14 @@ diff2html: true
 * ウィジェットはレイアウトとUI要素の両方に使用されます。  
 * シンプルなウィジェットを組み合わせて、複雑なウィジェットを構築することができます。  
 {{site.alert.end}}
-
+<!--
 The core of Flutter's layout mechanism is widgets. In Flutter, almost
 everything is a widget&mdash;even layout models are widgets.
 The images, icons, and text that you see in a Flutter app  are all widgets.
 But things you don't see are also widgets, such as the rows, columns,
 and grids that arrange, constrain, and align the visible widgets.
+-->
+Flutterのレイアウトの仕組みはウィジェットが中心になっています。Flutterでは、ほぼ全てがウィジェットです — レイアウトもウィジェットで実現します。Flutterアプリで直接見える画像、アイコン、テキストはすべてウィジェットです。しかし、直接見えない要素もウィジェットとして表現されます。例えば、行や列、グリッドなど、表示されるウィジェットを配置したり、並び方の条件をつけたり、整列するための要素もウィジェットです。
 
 You create a layout by composing widgets to build more complex widgets.
 For example, the first screenshot below shows 3 icons with a label
