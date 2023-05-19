@@ -37,9 +37,20 @@ and grids that arrange, constrain, and align the visible widgets.
 -->
 Flutterのレイアウトの仕組みはウィジェットが中心になっています。Flutterでは、ほぼ全てがウィジェットです — レイアウトもウィジェットで実現します。Flutterアプリで直接見える画像、アイコン、テキストはすべてウィジェットです。しかし、直接見えない要素もウィジェットとして表現されます。例えば、行や列、グリッドなど、表示されるウィジェットを配置したり、並び方の条件をつけたり、整列するための要素もウィジェットです。
 
+<!--
 You create a layout by composing widgets to build more complex widgets.
 For example, the first screenshot below shows 3 icons with a label
 under each one:
+-->
+ウィジェットを組み合わせてより複雑なウィジェットを構築することもできます。
+
+例えば、以下の最初のスクリーンショットでは、それぞれの下にラベルが付いている3つのアイコンが表示されています。
+
+<!--
+The second screenshot displays the visual layout, showing a row of
+3 columns where each column contains an icon and a label.
+-->
+2番目のスクリーンショットはレイアウトを視覚的に表示しています。それぞれの列にアイコンとラベルから成る3列の行から構成されていることが分かります。
 
 <div class="row mb-4">
   <div class="col-12 text-center">
@@ -47,9 +58,6 @@ under each one:
     <img src='https://docs.flutter.dev/assets/images/docs/ui/layout/lakes-icons-visual.png' class="border mt-1 mb-1 mw-100" alt="Sample layout with visual debugging">
   </div>
 </div>
-
-The second screenshot displays the visual layout, showing a row of
-3 columns where each column contains an icon and a label.
 
 {{site.alert.note}}
   Most of the screenshots in this tutorial are displayed with
