@@ -60,34 +60,46 @@ The second screenshot displays the visual layout, showing a row of
 </div>
 
 {{site.alert.note}}
-  Most of the screenshots in this tutorial are displayed with
+<!--
+Most of the screenshots in this tutorial are displayed with
   `debugPaintSizeEnabled` set to true so you can see the visual layout.
   For more information, see
   [Debugging layout issues visually][], a section in
   [Using the Flutter inspector][].
+-->
+このチュートリアルのほとんどのスクリーンショットは、debugPaintSizeEnabledがtrueに設定されている状態で表示されています。これにより視覚的にレイアウトが見えるようになっています。詳細は、[Using the Flutter inspector][]の[Debugging layout issues visually][]を参照してください。
 {{site.alert.end}}
 
+<!--
 Here's a diagram of the widget tree for this UI:
+-->
+以下は、このUIに対するウィジェットツリーの図です：
 
 <img src='/assets/images/docs/ui/layout/sample-flutter-layout.png' class="mw-100" alt="Node tree">
 {:.text-center}
 
+<!--
 Most of this should look as you might expect, but you might be wondering
 about the containers (shown in pink). [`Container`][] is a widget class
 that allows you to customize its child widget. Use a `Container` when
 you want to add padding, margins, borders, or background color,
 to name some of its capabilities.
+-->
+ほとんどは想定通りに見えると思いますが、ピンク色で表示されているContainerについては疑問に思うかもしれません。[Container]は子ウィジェットをカスタマイズできるウィジェットクラスです。パディング、マージン、ボーダー、背景色を追加したいときなど、その機能の一部を名前付けするためにContainerを使用します。
 
+<!--
 In this example, each [`Text`][] widget is placed in a `Container`
 to add margins. The entire [`Row`][] is also placed in a
 `Container` to add padding around the row.
+-->
+この例では、各 [Text]ウィジェットはマージンを追加するために Container内に配置されています。全体の [Row]も同様に、行の周囲にパディングを追加するためにContainer内に配置されています。
 
+<!--
 The rest of the UI in this example is controlled by properties.
 Set an [`Icon`][]'s color using its `color` property.
 Use the `Text.style` property to set the font, its color, weight, and so on.
-Columns and rows have properties that allow you to specify how their
-children are aligned vertically or horizontally, and how much space
-the children should occupy.
+-->
+この例のUIの残りの部分はプロパティによって制御されています。[Icon][]の色はその`color`プロパティを使用して設定します。フォント、その色、重さなどを設定するために`Text.style`プロパティを使用します。
 
 ## Lay out a widget
 
