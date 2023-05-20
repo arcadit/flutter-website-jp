@@ -437,10 +437,14 @@ axis runs horizontally.
       alt="Diagram showing the main axis and cross axis for a column">
 </div>
 
+<!--
 The [`MainAxisAlignment`][] and [`CrossAxisAlignment`][]
 enums offer a variety of constants for controlling alignment.
+-->
+[`MainAxisAlignment`][]と[`CrossAxisAlignment`][]の列挙型(Enum)で、アラインメント（整列方法）を制御するためのさまざまな定数が定義されています。
 
 {{site.alert.note}}
+<!--
   When you add images to your project,
   you need to update the `pubspec.yaml` file to access
   them&mdash;this example uses `Image.asset` to display
@@ -448,13 +452,18 @@ enums offer a variety of constants for controlling alignment.
   [`pubspec.yaml` file][] or [Adding assets and images][].
   You don't need to do this if you're referencing online
   images using `Image.network`.
+-->
+プロジェクトに画像を追加する場合、画像にアクセスするには`pubspec.yaml`ファイルを更新すうｒ必要があります。この例では`Image.asset`を使って画像を表示しています。詳細は[`pubspec.yaml` file][]または[Adding assets and images][]を参照してください。`Image.network`を使用してWeb上の画像を参照している場合は、この操作は必要ありません。
 {{site.alert.end}}
 
+<!--
 In the following example, each of the 3 images is 100 pixels wide.
 The render box (in this case, the entire screen)
 is more than 300 pixels wide, so setting the main axis
 alignment to `spaceEvenly` divides the free horizontal
 space evenly between, before, and after each image.
+-->
+次の例では、3つの画像それぞれに100ピクセルの幅があります。レンダリング領域（この場合は全画面）は300ピクセル以上の幅があるため、主軸(main axis)の配置を`spaceEvenly`に設定すると、各画像の前後のスペースを水平方向にを均等に分割します。
 
 <div class="row">
 <div class="col-lg-8">
@@ -477,11 +486,14 @@ space evenly between, before, and after each image.
 </div>
 </div>
 
+<!--
 Columns work the same way as rows. The following example shows a column
 of 3 images, each is 100 pixels high. The height of the render box
 (in this case, the entire screen) is more than 300 pixels, so
 setting the main axis alignment to `spaceEvenly` divides the free vertical
 space evenly between, above, and below each image.
+-->
+列(Column)は行(Row)と同じように動作します。以下の例では、それぞれが100ピクセルの高さを持つ3つの画像の列を示しています。領域の高さ（この場合は全画面）は300ピクセル以上なので、主軸(main axis)の配置(alignment)を`spaceEvenly`に設定すると、各画像の上下のスペースを垂直方向に均等に分割します。
 
 <div class="row">
 <div class="col-lg-8" markdown="1">
@@ -505,12 +517,17 @@ space evenly between, above, and below each image.
 </div>
 </div>
 
+<!--
 ### Sizing widgets
 
 When a layout is too large to fit a device, a yellow
 and black striped pattern appears along the affected edge.
 Here is an [example][sizing] of a row that is too wide:
+-->
+### ウィジェットのサイズ設定
 
+レイアウトがデバイスに収まり切らない場合、はみ出しが発生する箇所に黄色と黒の縞模様が表示されます。
+以下に、横幅が広すぎる行の[例][sizing]を示します：
 <img src='/assets/images/docs/ui/layout/layout-too-large.png' class="mw-100" alt="Overly-wide row">
 {:.text-center}
 
