@@ -564,11 +564,14 @@ wrap each image with an `Expanded` widget.
 </div>
 </div>
 
+<!--
 Perhaps you want a widget to occupy twice as much space as its
 siblings. For this, use the `Expanded` widget `flex` property,
 an integer that determines the flex factor for a widget.
 The default flex factor is 1. The following code sets
 the flex factor of the middle image to 2:
+-->
+あるウィジェットが他の兄弟ウィジェットの2倍のスペースを占めるようにしたいと思うかもしれません。そのためには、ウィジェットのフレックス係数を決定する整数である`Expanded`ウィジェットの`flex`プロパティを使用します。デフォルトのフレックス係数は1です。以下のコードでは、中央の画像のフレックス係数に2を設定しています：
 
 <div class="row">
 <div class="col-lg-8">
@@ -601,12 +604,15 @@ the flex factor of the middle image to 2:
 
 [sizing]: {{examples}}/layout/sizing
 
-### Packing widgets
+### ウィジェットをまとめる
 
+<!--
 By default, a row or column occupies as much space along its main axis
 as possible, but if you want to pack the children closely together,
 set its `mainAxisSize` to `MainAxisSize.min`. The following example
 uses this property to pack the star icons together.
+-->
+デフォルトでは、行(Row)または列(Column)はその主軸(main axis)に沿って可能な限り多くのスペースを占めるように配置しますが、子要素間のスペースができる限り少なくなるようにまとめたい場合は、`mainAxisSize`を`MainAxisSize.min`に設定します。以下の例では、このプロパティを使用して星のアイコンをまとめています。
 
 <div class="row">
 <div class="col-lg-8">
@@ -632,28 +638,43 @@ uses this property to pack the star icons together.
 </div>
 </div>
 
+<!--
 ### Nesting rows and columns
 
 The layout framework allows you to nest rows and columns
 inside of rows and columns as deeply as you need.
 Let's look at the code for the outlined
 section of the following layout:
+-->
+### 行と列のネスト化
+
+行(Row)と列(Column)を必要なだけ他の行(Row)や列(Column)の中に深くネストすることができます。以下のレイアウトの枠線で囲まれた部分のコードを見てみましょう：
 
 <img src='/assets/images/docs/ui/layout/pavlova-large-annotated.png' class="border mw-100"
     alt="Screenshot of the pavlova app, with the ratings and icon rows outlined in red">
 {:.text-center}
 
+<!--
 The outlined section is implemented as two rows. The ratings row contains
 five stars and the number of reviews. The icons row contains three
 columns of icons and text.
 
 The widget tree for the ratings row:
+-->
+枠線で囲まれた部分は2つの行(Row)として実装されています。評価の行(Row)には5つの星とレビューの数が含まれています。アイコンの行(Row)には、アイコンとテキストの3つの列(Row)が含まれています。
+
+評価の行(Row)に対するウィジェットツリー：
+
 
 <img src='/assets/images/docs/ui/layout/widget-tree-pavlova-rating-row.png' class="mw-100" alt="Ratings row widget tree">
 {:.text-center}
 
+<!--
 The `ratings` variable creates a row containing a smaller row
 of 5 star icons, and text:
+-->
+
+ratings変数は、5つの星アイコンの小さな行(Row)とテキストを含む行(Row)を生成します：
 
 <?code-excerpt "layout/pavlova/lib/main.dart (ratings)" replace="/ratings/[!$&!]/g"?>
 ```dart
@@ -689,20 +710,30 @@ final [!ratings!] = Container(
 );
 ```
 
+<!--
 {{site.alert.tip}}
   To minimize the visual confusion that can result from
   heavily nested layout code, implement pieces of the UI
   in variables and functions.
 {{site.alert.end}}
+-->
+{{site.alert.tip}}
+  非常に深くネストされたレイアウトコードでは、読みやすくするためにUIの一部を変数や関数で実装します。
+{{site.alert.end}}
 
+<!--
 The icons row, below the ratings row, contains 3 columns;
 each column contains an icon and two lines of text,
 as you can see in its widget tree:
-
+-->
+評価行の下のアイコン行(Row)は3つの列(Column)を含んでいます。それぞれの列(Column)にはアイコンと2行のテキストが含まれています。そのウィジェットツリーは次の通りです：
 <img src='/assets/images/docs/ui/layout/widget-tree-pavlova-icon-row.png' class="mw-100" alt="Icon widget tree">
 {:.text-center}
 
+<!--
 The `iconList` variable defines the icons row:
+-->
+`iconList`変数はアイコンの行に該当します:
 
 <?code-excerpt "layout/pavlova/lib/main.dart (iconList)" replace="/iconList/[!$&!]/g"?>
 ```dart
