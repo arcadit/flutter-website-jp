@@ -302,16 +302,22 @@ class MyApp extends StatelessWidget {
 }
 ```
 
+<!--
 By default a non-Material app doesn't include an `AppBar`, title,
 or background color. If you want these features in a non-Material app,
 you have to build them yourself. This app changes the background
 color to white and the text to dark grey to mimic a Material app.
+-->
+非Material appsにはデフォルトでは`AppBar`、タイトル、背景色が含まれません。非Material appsでこれらの機能を使用したい場合は、自分で作成する必要があります。このアプリでは、背景色を白に、テキストをダークグレーに変更して、Materialアプリを模倣しています。
 
 <div class="row">
 <div class="col-md-6" markdown="1">
-  That's it! When you run the app, you should see _Hello World_.
-
-  App source code:
+  <!--
+    That's it! When you run the app, you should see _Hello World_.
+  -->
+  以上です！アプリを実行すると、_Hello World_が表示されるはずです。
+  
+  ソースコード:
   - [Material app]({{examples}}/layout/base)
   - [Non-Material app]({{examples}}/layout/non_material)
 </div>
