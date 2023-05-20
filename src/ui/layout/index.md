@@ -383,32 +383,41 @@ a column on the left, and an image on the right:
 -->
 Flutterで行（row）や列（column）を作成するためには、子ウィジェットのリストを[`Row`][]や[`Column`][]ウィジェットに追加します。そして、それぞれの子ウィジェットもまた行や列にできます。以下の例は、行や列の中にネストする方法を示しています。
 
-このレイアウトは`Row`として構成されています。Rowには二つの子要素があり、左側が列Column、右側が画像です：
+このレイアウトは`Row`として構成されています。Rowには2つの子要素があり、左側が列Column、右側が画像です：
 
 <img src='/assets/images/docs/ui/layout/pavlova-diagram.png' class="mw-100"
     alt="Screenshot with callouts showing the row containing two children">
 
+<!--
 The left column's widget tree nests rows and columns.
+-->
+左側の列のウィジェットツリーでは、行(Row)と列(Column)がネストされています。
 
 <img src='/assets/images/docs/ui/layout/pavlova-left-column-diagram.png' class="mw-100"
     alt="Diagram showing a left column broken down to its sub-rows and sub-columns">
 
+<!--
 You'll implement some of Pavlova's layout code in
 [Nesting rows and columns](#nesting-rows-and-columns).
+-->
+[行(Row)と列(Column)のネスト](#nesting-rows-and-columns)で、Pavlova（ババロアショップアプリ）のレイアウトコードの一部を実装します。
 
 {{site.alert.note}}
-  `Row` and `Column` are basic primitive widgets for horizontal
-  and vertical layouts&mdash;these low-level widgets allow for maximum
-  customization. Flutter also offers specialized, higher level widgets
-  that might be sufficient for your needs. For example,
-  instead of `Row` you might prefer [`ListTile`][],
-  an easy-to-use widget with properties for leading and trailing icons,
-  and up to 3 lines of text.  Instead of Column, you might prefer
-  [`ListView`][], a column-like layout that automatically scrolls
-  if its content is too long to fit the available space.
-  For more information, see [Common layout widgets][].
-{{site.alert.end}}
+<!--
+`Row` and `Column` are basic primitive widgets for horizontal
+and vertical layouts&mdash;these low-level widgets allow for maximum
+customization. Flutter also offers specialized, higher level widgets
+that might be sufficient for your needs. For example,
+instead of `Row` you might prefer [`ListTile`][],
+an easy-to-use widget with properties for leading and trailing icons,
+and up to 3 lines of text.  Instead of Column, you might prefer
+[`ListView`][], a column-like layout that automatically scrolls
+if its content is too long to fit the available space.
+For more information, see [Common layout widgets][].
+-->
+`Row`と`Column`は、水平と垂直のレイアウトのための基本的なウィジェットであり、最大限のカスタマイズが可能です。Flutterには、用途に特化したウィジェットも提供しており、これらが要件を満たすために十分な場合もあります。例えば、`Row`の代わりに[`ListTile`][]の方が適切かもしれません。`ListTile`は、先頭、末尾のアイコンと最大3行のテキストを持つ使いやすいウィジェットです。`Column`の代わりに[`ListView`][]が適しているかもしれません。`ListView`は、コンテンツがスペースに収まらない場合に自動的にスクロールする、Columnに似たレイアウトを実現します。詳細は、[Common layout widgets][]を参照して下さい。{{site.alert.end}}
 
+<!--
 ### Aligning widgets
 
 You control how a row or column aligns its children using the
@@ -416,6 +425,10 @@ You control how a row or column aligns its children using the
 For a row, the main axis runs horizontally and the cross axis runs
 vertically. For a column, the main axis runs vertically and the cross
 axis runs horizontally.
+-->
+### ウィジェットの整列
+
+`mainAxisAlignment`と`crossAxisAlignment`のプロパティを使用して、行(Row)や列(Column)が、子ウィジェットをどのように整列させるかを制御できます。行(Row)の場合、主軸（main axis）は水平方向に、交差軸（cross axis）は垂直方向になります。列(Column)の場合、主軸（main axis）は垂直方向に、交差軸(cross axis)は水平方向に走ります。
 
 <div class="mb-2 text-center">
   <img src='/assets/images/docs/ui/layout/row-diagram.png' class="mb-2 mw-100"
