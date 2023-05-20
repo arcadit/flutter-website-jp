@@ -101,6 +101,7 @@ Use the `Text.style` property to set the font, its color, weight, and so on.
 -->
 この例のUIの残りの部分はプロパティによって制御されています。[Icon][]の色はその`color`プロパティを使用して設定します。フォント、その色、重さなどを設定するために`Text.style`プロパティを使用します。
 
+<!--
 ## Lay out a widget
 
 How do you lay out a single widget in Flutter? This section
@@ -109,7 +110,13 @@ It also shows the entire code for a simple Hello World app.
 
 In Flutter, it takes only a few steps to put text, an icon,
 or an image on the screen.
+-->
+## ウィジェットのレイアウト
+Flutterでは、ウィジェットをどのようにレイアウトするのでしょうか？このセクションでは、シンプルなウィジェットの作成と表示方法を説明します。また、シンプルなHello Worldアプリケーションのコードも示します。
 
+Flutterでは、テキスト、アイコン、画像を画面の表示するの少しのステップだけでできます。
+
+<!--
 ### 1. Select a layout widget
 
 Choose from a variety of [layout widgets][] based
@@ -119,17 +126,29 @@ contained widget.
 
 This example uses [`Center`][] which centers its content
 horizontally and vertically.
+-->
+### 1. レイアウトウィジェットの選択
+表示するウィジェットの整列、制約の種類によって、さまざまな[layout widgets][]から選択します。レイアウトウィジェットの特性は、子ウィジェットに適用されます。
 
+この例では、子ウィジェットを水平、垂直方向に中央に配置する[`Center`][]ウィジェットを使っています。
+
+<!--
 ### 2. Create a visible widget
 
 For example, create a [`Text`][] widget:
+-->
+### 2. 表示対象のウィジェットの作成
+例として、[Text][]ウィジェットを作成します：
 
 <?code-excerpt "layout/base/lib/main.dart (text)" replace="/child: //g"?>
 ```dart
 Text('Hello World'),
 ```
 
+<!--
 Create an [`Image`][] widget:
+-->
+[`Image`][]ウィジェットを作成します:
 
 <?code-excerpt "layout/lakes/step5/lib/main.dart (Image-asset)" remove="/width|height/"?>
 ```dart
