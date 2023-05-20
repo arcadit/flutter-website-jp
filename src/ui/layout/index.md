@@ -137,8 +137,8 @@ horizontally and vertically.
 
 For example, create a [`Text`][] widget:
 -->
-### 2. 表示対象のウィジェットの作成
-例として、[Text][]ウィジェットを作成します：
+### 2. 表示するウィジェットの作成
+例として、[`Text`][]ウィジェットを作成します：
 
 <?code-excerpt "layout/base/lib/main.dart (text)" replace="/child: //g"?>
 ```dart
@@ -158,7 +158,10 @@ Image.asset(
 ),
 ```
 
+<!--
 Create an [`Icon`][] widget:
+-->
+[`Icon`][] ウィジェットを作成します:
 
 <?code-excerpt "layout/lakes/step5/lib/main.dart (Icon)"?>
 ```dart
@@ -168,18 +171,33 @@ Icon(
 ),
 ```
 
+<!--
 ### 3. Add the visible widget to the layout widget
+-->
+### 3. 表示するウィジェットをレイアウトウィジェットに追加します
 
 <?code-excerpt path-base="layout/base"?>
 
+<!--
 All layout widgets have either of the following:
+-->
+すべてのレイアウトウィジェットは、次のような特徴を持っています:
 
+<!--
 * A `child` property if they take a single child&mdash;for example,
   `Center` or `Container`
 * A `children` property if they take a list of widgets&mdash;for example,
   `Row`, `Column`, `ListView`, or `Stack`.
+-->
+* `child` プロパティ:一つの子要素を持つ場合&mdash;例)
+  `Center`、`Container`ウィジェット
+* `children` プロパティ: リストとして複数の子要素を保つ場合&mdash;例)
+  `Row`, `Column`, `ListView`, `Stack`ウィジェット
 
+<!--
 Add the `Text` widget to the `Center` widget:
+-->
+`Text`ウィジェットを`Center`ウィジェットに追加します:
 
 <?code-excerpt "lib/main.dart (centered-text)" replace="/body: //g"?>
 ```dart
@@ -188,11 +206,16 @@ const Center(
 ),
 ```
 
+<!--
 ### 4. Add the layout widget to the page
 
 A Flutter app is itself a widget, and most widgets have a [`build()`][]
 method. Instantiating and returning a widget in the app's `build()` method
 displays the widget.
+-->
+### 4. ページにレイアウトウィジェットを追加する
+
+Flutterのアプリ自体がウィジェットであり、ほとんどのウィジェットには[`build()`][]メソッドがあります。アプリの`build()`メソッドでウィジェットを生成して返すと、そのウィジェットが表示されます。
 
 #### Material apps
 
