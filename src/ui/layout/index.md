@@ -329,6 +329,7 @@ color to white and the text to dark grey to mimic a Material app.
 
 <hr>
 
+<!--
 ## Lay out multiple widgets vertically and horizontally
 
 <?code-excerpt path-base=""?>
@@ -337,7 +338,14 @@ One of the most common layout patterns is to arrange
 widgets vertically or horizontally. You can use a
 `Row` widget to arrange widgets horizontally,
 and a `Column` widget to arrange widgets vertically.
+-->
+## 複数のウィジェットを垂直、水平に配置する
 
+<?code-excerpt path-base=""?>
+
+最も一般的なレイアウトのパターンの一つは、ウィジェットを垂直または水平に配置することです。ウィジェットを水平に配置するには`Row`ウィジェットを、垂直に配置するには`Column`ウィジェットを使用します。
+
+<!--
 {{site.alert.secondary}}
   <h4 class="no_toc">What's the point?</h4>
 
@@ -351,7 +359,19 @@ and a `Column` widget to arrange widgets vertically.
   * You can specify how child widgets use the `Row`'s or
     `Column`'s available space.
 {{site.alert.end}}
+-->
+{{site.alert.secondary}}
+  <h4 class="no_toc">ポイント</h4>
 
+  * `Row`と`Column`は最も一般的に使用されるレイアウトパターンの2つです。
+  * `Row`と`Column`はそれぞれ子ウィジェットのリストを取ります。
+  * 子ウィジェット自体に`Row`、`Column`や、他の複雑なウィジェットを指定することができます。
+  * `Row`または`Column`で、子ウィジェットを垂直および水平にどのように配置するかを指定できます。
+  * 特定の子ウィジェットを伸ばしたり、制約を設けたりすることができます。
+  * 子ウィジェットが`Row`または`Column`のスペースをどのように使用するかを指定できます。
+{{site.alert.end}}
+
+<!--
 To create a row or column in Flutter, you add a list of children
 widgets to a [`Row`][] or [`Column`][] widget. In turn,
 each child can itself be a row or column, and so on.
@@ -360,6 +380,10 @@ columns inside of rows or columns.
 
 This layout is organized as a `Row`. The row contains two children:
 a column on the left, and an image on the right:
+-->
+Flutterで行（row）や列（column）を作成するためには、子ウィジェットのリストを[`Row`][]や[`Column`][]ウィジェットに追加します。そして、それぞれの子ウィジェットもまた行や列にできます。以下の例は、行や列の中にネストする方法を示しています。
+
+このレイアウトは`Row`として構成されています。Rowには二つの子要素があり、左側が列Column、右側が画像です：
 
 <img src='/assets/images/docs/ui/layout/pavlova-diagram.png' class="mw-100"
     alt="Screenshot with callouts showing the row containing two children">
