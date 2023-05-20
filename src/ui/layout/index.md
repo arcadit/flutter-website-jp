@@ -114,7 +114,7 @@ or an image on the screen.
 ## ウィジェットのレイアウト
 Flutterでは、ウィジェットをどのようにレイアウトするのでしょうか？このセクションでは、シンプルなウィジェットの作成と表示方法を説明します。また、シンプルなHello Worldアプリケーションのコードも示します。
 
-Flutterでは、テキスト、アイコン、画像を画面の表示するの少しのステップだけでできます。
+Flutterでは、少しのステップだけでテキスト、アイコン、画像のレイアウトができます。
 
 <!--
 ### 1. Select a layout widget
@@ -217,6 +217,7 @@ displays the widget.
 
 Flutterのアプリ自体がウィジェットであり、ほとんどのウィジェットには[`build()`][]メソッドがあります。アプリの`build()`メソッドでウィジェットを生成して返すと、そのウィジェットが表示されます。
 
+<!--
 #### Material apps
 
 For a `Material` app, you can use a [`Scaffold`][] widget;
@@ -224,6 +225,10 @@ it provides a default banner, background color,
 and has API for adding drawers, snack bars, and bottom sheets.
 Then you can add the `Center` widget directly to the `body`
 property for the home page.
+-->
+#### Material apps
+
+`Material`appsの場合、[`Scaffold`][]ウィジェットを使用することができます。デフォルトのバナー、背景色を提供し、ドロワー、スナックバー、ボトムシートを追加するためのAPIがあります。そして、ホームページの`body`プロパティに直接`Center`ウィジェットを追加することができます。
 
 <?code-excerpt path-base="layout/base"?>
 <?code-excerpt "lib/main.dart (MyApp)" title?>
@@ -248,6 +253,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
+<!--
 {{site.alert.note}}
   The [Material library][] implements widgets that follow [Material
   Design][] principles. When designing your UI, you can exclusively use
@@ -256,11 +262,20 @@ class MyApp extends StatelessWidget {
   libraries, you can customize existing widgets,
   or you can build your own set of custom widgets.
 {{site.alert.end}}
+-->
+{{site.alert.note}}
+[Material library][]は、[Material Design][]の原則に従ったウィジェットを実装しています。UIをデザインする際には、標準の[widget library][]からのウィジェットだけを使用することも、Materialライブラリからのウィジェットを使用することもできます。両方のライブラリからウィジェットを混ぜて使用したり、既存のウィジェットをカスタマイズすることや、自分自身のカスタムウィジェットを作成することもできます。
+{{site.alert.end}}
 
+<!--
 #### Non-Material apps
 
 For a non-Material app, you can add the `Center` widget to the app's
 `build()` method:
+-->
+#### 非Material apps
+
+非Material appsの場合、`Center`ウィジェットをアプリの`build()`メソッドに追加できます：
 
 <?code-excerpt path-base="layout/non_material"?>
 <?code-excerpt "lib/main.dart (MyApp)" title?>
