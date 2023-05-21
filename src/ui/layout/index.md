@@ -531,10 +531,13 @@ Here is an [example][sizing] of a row that is too wide:
 <img src='/assets/images/docs/ui/layout/layout-too-large.png' class="mw-100" alt="Overly-wide row">
 {:.text-center}
 
+<!--
 Widgets can be sized to fit within a row or column by using the
 [`Expanded`][] widget. To fix the previous example where the
 row of images is too wide for its render box,
 wrap each image with an `Expanded` widget.
+-->
+[`Expanded`][] ウィジェットを使用すると、ウィジェットを行または列に合わせてサイズ調整することができます。前の例の、画像の行がレンダリング領域に対して広すぎる問題を解決するためには、各画像を `Expanded` ウィジェットでラップします。
 
 <div class="row">
 <div class="col-lg-8">
