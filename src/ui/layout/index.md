@@ -15,63 +15,93 @@ diff2html: true
 <style>dl, dd { margin-bottom: 0; }</style>
 
 {{site.alert.secondary}}
-  <h4 class="no_toc">What's the point?</h4>
+<!-- 
+<h4 class="no_toc">What's the point?</h4>
 
-  * Widgets are classes used to build UIs.
-  * Widgets are used for both layout and UI elements.
-  * Compose simple widgets to build complex widgets.
+* Widgets are classes used to build UIs.
+* Widgets are used for both layout and UI elements.
+* Compose simple widgets to build complex widgets.
+-->
+<h4 class="no_toc">ポイント</h4>
+
+* ウィジェットはUIを構築するために使用されるクラスです。  
+* ウィジェットはレイアウトとUI要素の両方に使用されます。  
+* シンプルなウィジェットを組み合わせて、複雑なウィジェットを構築することができます。  
 {{site.alert.end}}
-
+<!--
 The core of Flutter's layout mechanism is widgets. In Flutter, almost
 everything is a widget&mdash;even layout models are widgets.
 The images, icons, and text that you see in a Flutter app  are all widgets.
 But things you don't see are also widgets, such as the rows, columns,
 and grids that arrange, constrain, and align the visible widgets.
+-->
+Flutterのレイアウトの仕組みはウィジェットが中心になっています。Flutterでは、ほぼ全てがウィジェットです — レイアウトもウィジェットで実現します。Flutterアプリで直接見える画像、アイコン、テキストはすべてウィジェットです。しかし、直接見えない要素もウィジェットとして表現されます。例えば、行や列、グリッドなど、表示されるウィジェットを配置したり、並び方の条件をつけたり、整列するための要素もウィジェットです。
 
+<!--
 You create a layout by composing widgets to build more complex widgets.
 For example, the first screenshot below shows 3 icons with a label
 under each one:
+-->
+ウィジェットを組み合わせてより複雑なウィジェットを構築することもできます。
+
+例えば、以下の最初のスクリーンショットでは、それぞれの下にラベルが付いている3つのアイコンが表示されています。
+
+<!--
+The second screenshot displays the visual layout, showing a row of
+3 columns where each column contains an icon and a label.
+-->
+2番目のスクリーンショットはレイアウトを視覚的に表示しています。それぞれの列にアイコンとラベルから成る3列の行から構成されていることが分かります。
 
 <div class="row mb-4">
   <div class="col-12 text-center">
-    <img src='/assets/images/docs/ui/layout/lakes-icons.png' class="border mt-1 mb-1 mw-100" alt="Sample layout">
-    <img src='/assets/images/docs/ui/layout/lakes-icons-visual.png' class="border mt-1 mb-1 mw-100" alt="Sample layout with visual debugging">
+    <img src='https://docs.flutter.dev/assets/images/docs/ui/layout/lakes-icons.png' class="border mt-1 mb-1 mw-100" alt="Sample layout">
+    <img src='https://docs.flutter.dev/assets/images/docs/ui/layout/lakes-icons-visual.png' class="border mt-1 mb-1 mw-100" alt="Sample layout with visual debugging">
   </div>
 </div>
 
-The second screenshot displays the visual layout, showing a row of
-3 columns where each column contains an icon and a label.
-
 {{site.alert.note}}
-  Most of the screenshots in this tutorial are displayed with
+<!--
+Most of the screenshots in this tutorial are displayed with
   `debugPaintSizeEnabled` set to true so you can see the visual layout.
   For more information, see
   [Debugging layout issues visually][], a section in
   [Using the Flutter inspector][].
+-->
+このチュートリアルのほとんどのスクリーンショットは、debugPaintSizeEnabledがtrueに設定されている状態で表示されています。これにより視覚的にレイアウトが見えるようになっています。詳細は、[Using the Flutter inspector][]の[Debugging layout issues visually][]を参照してください。
 {{site.alert.end}}
 
+<!--
 Here's a diagram of the widget tree for this UI:
+-->
+以下は、このUIに対するウィジェットツリーの図です：
 
 <img src='/assets/images/docs/ui/layout/sample-flutter-layout.png' class="mw-100" alt="Node tree">
 {:.text-center}
 
+<!--
 Most of this should look as you might expect, but you might be wondering
 about the containers (shown in pink). [`Container`][] is a widget class
 that allows you to customize its child widget. Use a `Container` when
 you want to add padding, margins, borders, or background color,
 to name some of its capabilities.
+-->
+ほとんどは想定通りに見えると思いますが、ピンク色で表示されているContainerについては疑問に思うかもしれません。[Container]は子ウィジェットをカスタマイズできるウィジェットクラスです。パディング、マージン、ボーダー、背景色を追加したいときなど、その機能の一部を名前付けするためにContainerを使用します。
 
+<!--
 In this example, each [`Text`][] widget is placed in a `Container`
 to add margins. The entire [`Row`][] is also placed in a
 `Container` to add padding around the row.
+-->
+この例では、各 [Text]ウィジェットはマージンを追加するために Container内に配置されています。全体の [Row]も同様に、行の周囲にパディングを追加するためにContainer内に配置されています。
 
+<!--
 The rest of the UI in this example is controlled by properties.
 Set an [`Icon`][]'s color using its `color` property.
 Use the `Text.style` property to set the font, its color, weight, and so on.
-Columns and rows have properties that allow you to specify how their
-children are aligned vertically or horizontally, and how much space
-the children should occupy.
+-->
+この例のUIの残りの部分はプロパティによって制御されています。[Icon][]の色はその`color`プロパティを使用して設定します。フォント、その色、重さなどを設定するために`Text.style`プロパティを使用します。
 
+<!--
 ## Lay out a widget
 
 How do you lay out a single widget in Flutter? This section
@@ -80,7 +110,13 @@ It also shows the entire code for a simple Hello World app.
 
 In Flutter, it takes only a few steps to put text, an icon,
 or an image on the screen.
+-->
+## ウィジェットのレイアウト
+Flutterでは、ウィジェットをどのようにレイアウトするのでしょうか？このセクションでは、シンプルなウィジェットの作成と表示方法を説明します。また、シンプルなHello Worldアプリケーションのコードも示します。
 
+Flutterでは、少しのステップだけでテキスト、アイコン、画像のレイアウトができます。
+
+<!--
 ### 1. Select a layout widget
 
 Choose from a variety of [layout widgets][] based
@@ -90,17 +126,29 @@ contained widget.
 
 This example uses [`Center`][] which centers its content
 horizontally and vertically.
+-->
+### 1. レイアウトウィジェットの選択
+表示するウィジェットの整列、制約の種類によって、さまざまな[layout widgets][]から選択します。レイアウトウィジェットの特性は、子ウィジェットに適用されます。
 
+この例では、子ウィジェットを水平、垂直方向に中央に配置する[`Center`][]ウィジェットを使っています。
+
+<!--
 ### 2. Create a visible widget
 
 For example, create a [`Text`][] widget:
+-->
+### 2. 表示するウィジェットの作成
+例として、[`Text`][]ウィジェットを作成します：
 
 <?code-excerpt "layout/base/lib/main.dart (text)" replace="/child: //g"?>
 ```dart
 Text('Hello World'),
 ```
 
+<!--
 Create an [`Image`][] widget:
+-->
+[`Image`][]ウィジェットを作成します:
 
 <?code-excerpt "layout/lakes/step5/lib/main.dart (Image-asset)" remove="/width|height/"?>
 ```dart
@@ -110,7 +158,10 @@ Image.asset(
 ),
 ```
 
+<!--
 Create an [`Icon`][] widget:
+-->
+[`Icon`][] ウィジェットを作成します:
 
 <?code-excerpt "layout/lakes/step5/lib/main.dart (Icon)"?>
 ```dart
@@ -120,18 +171,33 @@ Icon(
 ),
 ```
 
+<!--
 ### 3. Add the visible widget to the layout widget
+-->
+### 3. 表示するウィジェットをレイアウトウィジェットに追加します
 
 <?code-excerpt path-base="layout/base"?>
 
+<!--
 All layout widgets have either of the following:
+-->
+すべてのレイアウトウィジェットは、次のような特徴を持っています:
 
+<!--
 * A `child` property if they take a single child&mdash;for example,
   `Center` or `Container`
 * A `children` property if they take a list of widgets&mdash;for example,
   `Row`, `Column`, `ListView`, or `Stack`.
+-->
+* `child` プロパティ:一つの子要素を持つ場合&mdash;例)
+  `Center`、`Container`ウィジェット
+* `children` プロパティ: リストとして複数の子要素を保つ場合&mdash;例)
+  `Row`, `Column`, `ListView`, `Stack`ウィジェット
 
+<!--
 Add the `Text` widget to the `Center` widget:
+-->
+`Text`ウィジェットを`Center`ウィジェットに追加します:
 
 <?code-excerpt "lib/main.dart (centered-text)" replace="/body: //g"?>
 ```dart
@@ -140,12 +206,18 @@ const Center(
 ),
 ```
 
+<!--
 ### 4. Add the layout widget to the page
 
 A Flutter app is itself a widget, and most widgets have a [`build()`][]
 method. Instantiating and returning a widget in the app's `build()` method
 displays the widget.
+-->
+### 4. ページにレイアウトウィジェットを追加する
 
+Flutterのアプリ自体がウィジェットであり、ほとんどのウィジェットには[`build()`][]メソッドがあります。アプリの`build()`メソッドでウィジェットを生成して返すと、そのウィジェットが表示されます。
+
+<!--
 #### Material apps
 
 For a `Material` app, you can use a [`Scaffold`][] widget;
@@ -153,6 +225,10 @@ it provides a default banner, background color,
 and has API for adding drawers, snack bars, and bottom sheets.
 Then you can add the `Center` widget directly to the `body`
 property for the home page.
+-->
+#### Material apps
+
+`Material`appsの場合、[`Scaffold`][]ウィジェットを使用することができます。デフォルトのバナー、背景色を提供し、ドロワー、スナックバー、ボトムシートを追加するためのAPIがあります。そして、ホームページの`body`プロパティに直接`Center`ウィジェットを追加することができます。
 
 <?code-excerpt path-base="layout/base"?>
 <?code-excerpt "lib/main.dart (MyApp)" title?>
@@ -177,6 +253,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
+<!--
 {{site.alert.note}}
   The [Material library][] implements widgets that follow [Material
   Design][] principles. When designing your UI, you can exclusively use
@@ -185,11 +262,20 @@ class MyApp extends StatelessWidget {
   libraries, you can customize existing widgets,
   or you can build your own set of custom widgets.
 {{site.alert.end}}
+-->
+{{site.alert.note}}
+[Material library][]は、[Material Design][]の原則に従ったウィジェットを実装しています。UIをデザインする際には、標準の[widget library][]からのウィジェットだけを使用することも、Materialライブラリからのウィジェットを使用することもできます。両方のライブラリからウィジェットを混ぜて使用したり、既存のウィジェットをカスタマイズすることや、自分自身のカスタムウィジェットを作成することもできます。
+{{site.alert.end}}
 
+<!--
 #### Non-Material apps
 
 For a non-Material app, you can add the `Center` widget to the app's
 `build()` method:
+-->
+#### 非Material apps
+
+非Material appsの場合、`Center`ウィジェットをアプリの`build()`メソッドに追加できます：
 
 <?code-excerpt path-base="layout/non_material"?>
 <?code-excerpt "lib/main.dart (MyApp)" title?>
@@ -216,16 +302,22 @@ class MyApp extends StatelessWidget {
 }
 ```
 
+<!--
 By default a non-Material app doesn't include an `AppBar`, title,
 or background color. If you want these features in a non-Material app,
 you have to build them yourself. This app changes the background
 color to white and the text to dark grey to mimic a Material app.
+-->
+非Material appsにはデフォルトでは`AppBar`、タイトル、背景色が含まれません。非Material appsでこれらの機能を使用したい場合は、自分で作成する必要があります。このアプリでは、背景色を白に、テキストをダークグレーに変更して、Materialアプリを模倣しています。
 
 <div class="row">
 <div class="col-md-6" markdown="1">
-  That's it! When you run the app, you should see _Hello World_.
-
-  App source code:
+  <!--
+    That's it! When you run the app, you should see _Hello World_.
+  -->
+  以上です！アプリを実行すると、_Hello World_が表示されるはずです。
+  
+  ソースコード:
   - [Material app]({{examples}}/layout/base)
   - [Non-Material app]({{examples}}/layout/non_material)
 </div>
@@ -237,6 +329,7 @@ color to white and the text to dark grey to mimic a Material app.
 
 <hr>
 
+<!--
 ## Lay out multiple widgets vertically and horizontally
 
 <?code-excerpt path-base=""?>
@@ -245,7 +338,14 @@ One of the most common layout patterns is to arrange
 widgets vertically or horizontally. You can use a
 `Row` widget to arrange widgets horizontally,
 and a `Column` widget to arrange widgets vertically.
+-->
+## 複数のウィジェットを垂直、水平に配置する
 
+<?code-excerpt path-base=""?>
+
+最も一般的なレイアウトのパターンの一つは、ウィジェットを垂直または水平に配置することです。ウィジェットを水平に配置するには`Row`ウィジェットを、垂直に配置するには`Column`ウィジェットを使用します。
+
+<!--
 {{site.alert.secondary}}
   <h4 class="no_toc">What's the point?</h4>
 
@@ -259,7 +359,19 @@ and a `Column` widget to arrange widgets vertically.
   * You can specify how child widgets use the `Row`'s or
     `Column`'s available space.
 {{site.alert.end}}
+-->
+{{site.alert.secondary}}
+  <h4 class="no_toc">ポイント</h4>
 
+  * `Row`と`Column`は最も一般的に使用されるレイアウトパターンの2つです。
+  * `Row`と`Column`はそれぞれ子ウィジェットのリストを取ります。
+  * 子ウィジェット自体に`Row`、`Column`や、他の複雑なウィジェットを指定することができます。
+  * `Row`または`Column`で、子ウィジェットを垂直および水平にどのように配置するかを指定できます。
+  * 特定の子ウィジェットを伸ばしたり、制約を設けたりすることができます。
+  * 子ウィジェットが`Row`または`Column`のスペースをどのように使用するかを指定できます。
+{{site.alert.end}}
+
+<!--
 To create a row or column in Flutter, you add a list of children
 widgets to a [`Row`][] or [`Column`][] widget. In turn,
 each child can itself be a row or column, and so on.
@@ -268,31 +380,44 @@ columns inside of rows or columns.
 
 This layout is organized as a `Row`. The row contains two children:
 a column on the left, and an image on the right:
+-->
+Flutterで行（row）や列（column）を作成するためには、子ウィジェットのリストを[`Row`][]や[`Column`][]ウィジェットに追加します。そして、それぞれの子ウィジェットもまた行や列にできます。以下の例は、行や列の中にネストする方法を示しています。
+
+このレイアウトは`Row`として構成されています。Rowには2つの子要素があり、左側が列Column、右側が画像です：
 
 <img src='/assets/images/docs/ui/layout/pavlova-diagram.png' class="mw-100"
     alt="Screenshot with callouts showing the row containing two children">
 
+<!--
 The left column's widget tree nests rows and columns.
+-->
+左側の列のウィジェットツリーでは、行(Row)と列(Column)がネストされています。
 
 <img src='/assets/images/docs/ui/layout/pavlova-left-column-diagram.png' class="mw-100"
     alt="Diagram showing a left column broken down to its sub-rows and sub-columns">
 
+<!--
 You'll implement some of Pavlova's layout code in
 [Nesting rows and columns](#nesting-rows-and-columns).
+-->
+[行(Row)と列(Column)のネスト](#nesting-rows-and-columns)で、Pavlova（ババロアショップアプリ）のレイアウトコードの一部を実装します。
 
 {{site.alert.note}}
-  `Row` and `Column` are basic primitive widgets for horizontal
-  and vertical layouts&mdash;these low-level widgets allow for maximum
-  customization. Flutter also offers specialized, higher level widgets
-  that might be sufficient for your needs. For example,
-  instead of `Row` you might prefer [`ListTile`][],
-  an easy-to-use widget with properties for leading and trailing icons,
-  and up to 3 lines of text.  Instead of Column, you might prefer
-  [`ListView`][], a column-like layout that automatically scrolls
-  if its content is too long to fit the available space.
-  For more information, see [Common layout widgets][].
-{{site.alert.end}}
+<!--
+`Row` and `Column` are basic primitive widgets for horizontal
+and vertical layouts&mdash;these low-level widgets allow for maximum
+customization. Flutter also offers specialized, higher level widgets
+that might be sufficient for your needs. For example,
+instead of `Row` you might prefer [`ListTile`][],
+an easy-to-use widget with properties for leading and trailing icons,
+and up to 3 lines of text.  Instead of Column, you might prefer
+[`ListView`][], a column-like layout that automatically scrolls
+if its content is too long to fit the available space.
+For more information, see [Common layout widgets][].
+-->
+`Row`と`Column`は、水平と垂直のレイアウトのための基本的なウィジェットであり、最大限のカスタマイズが可能です。Flutterには、用途に特化したウィジェットも提供しており、これらが要件を満たすために十分な場合もあります。例えば、`Row`の代わりに[`ListTile`][]の方が適切かもしれません。`ListTile`は、先頭、末尾のアイコンと最大3行のテキストを持つ使いやすいウィジェットです。`Column`の代わりに[`ListView`][]が適しているかもしれません。`ListView`は、コンテンツがスペースに収まらない場合に自動的にスクロールする、Columnに似たレイアウトを実現します。詳細は、[Common layout widgets][]を参照して下さい。{{site.alert.end}}
 
+<!--
 ### Aligning widgets
 
 You control how a row or column aligns its children using the
@@ -300,6 +425,10 @@ You control how a row or column aligns its children using the
 For a row, the main axis runs horizontally and the cross axis runs
 vertically. For a column, the main axis runs vertically and the cross
 axis runs horizontally.
+-->
+### ウィジェットの整列
+
+`mainAxisAlignment`と`crossAxisAlignment`のプロパティを使用して、行(Row)や列(Column)が、子ウィジェットをどのように整列させるかを制御できます。行(Row)の場合、主軸（main axis）は水平方向に、交差軸（cross axis）は垂直方向になります。列(Column)の場合、主軸（main axis）は垂直方向に、交差軸(cross axis)は水平方向に走ります。
 
 <div class="mb-2 text-center">
   <img src='/assets/images/docs/ui/layout/row-diagram.png' class="mb-2 mw-100"
@@ -308,10 +437,14 @@ axis runs horizontally.
       alt="Diagram showing the main axis and cross axis for a column">
 </div>
 
+<!--
 The [`MainAxisAlignment`][] and [`CrossAxisAlignment`][]
 enums offer a variety of constants for controlling alignment.
+-->
+[`MainAxisAlignment`][]と[`CrossAxisAlignment`][]の列挙型(Enum)で、アラインメント（整列方法）を制御するためのさまざまな定数が定義されています。
 
 {{site.alert.note}}
+<!--
   When you add images to your project,
   you need to update the `pubspec.yaml` file to access
   them&mdash;this example uses `Image.asset` to display
@@ -319,13 +452,18 @@ enums offer a variety of constants for controlling alignment.
   [`pubspec.yaml` file][] or [Adding assets and images][].
   You don't need to do this if you're referencing online
   images using `Image.network`.
+-->
+プロジェクトに画像を追加する場合、画像にアクセスするには`pubspec.yaml`ファイルを更新すうｒ必要があります。この例では`Image.asset`を使って画像を表示しています。詳細は[`pubspec.yaml` file][]または[Adding assets and images][]を参照してください。`Image.network`を使用してWeb上の画像を参照している場合は、この操作は必要ありません。
 {{site.alert.end}}
 
+<!--
 In the following example, each of the 3 images is 100 pixels wide.
 The render box (in this case, the entire screen)
 is more than 300 pixels wide, so setting the main axis
 alignment to `spaceEvenly` divides the free horizontal
 space evenly between, before, and after each image.
+-->
+次の例では、3つの画像それぞれに100ピクセルの幅があります。レンダリング領域（この場合は全画面）は300ピクセル以上の幅があるため、主軸(main axis)の配置を`spaceEvenly`に設定すると、各画像の前後のスペースを水平方向にを均等に分割します。
 
 <div class="row">
 <div class="col-lg-8">
@@ -348,11 +486,14 @@ space evenly between, before, and after each image.
 </div>
 </div>
 
+<!--
 Columns work the same way as rows. The following example shows a column
 of 3 images, each is 100 pixels high. The height of the render box
 (in this case, the entire screen) is more than 300 pixels, so
 setting the main axis alignment to `spaceEvenly` divides the free vertical
 space evenly between, above, and below each image.
+-->
+列(Column)は行(Row)と同じように動作します。以下の例では、それぞれが100ピクセルの高さを持つ3つの画像の列を示しています。領域の高さ（この場合は全画面）は300ピクセル以上なので、主軸(main axis)の配置(alignment)を`spaceEvenly`に設定すると、各画像の上下のスペースを垂直方向に均等に分割します。
 
 <div class="row">
 <div class="col-lg-8" markdown="1">
@@ -376,19 +517,27 @@ space evenly between, above, and below each image.
 </div>
 </div>
 
+<!--
 ### Sizing widgets
 
 When a layout is too large to fit a device, a yellow
 and black striped pattern appears along the affected edge.
 Here is an [example][sizing] of a row that is too wide:
+-->
+### ウィジェットのサイズ設定
 
+レイアウトがデバイスに収まり切らない場合、はみ出しが発生する箇所に黄色と黒の縞模様が表示されます。
+以下に、横幅が広すぎる行の[例][sizing]を示します：
 <img src='/assets/images/docs/ui/layout/layout-too-large.png' class="mw-100" alt="Overly-wide row">
 {:.text-center}
 
+<!--
 Widgets can be sized to fit within a row or column by using the
 [`Expanded`][] widget. To fix the previous example where the
 row of images is too wide for its render box,
 wrap each image with an `Expanded` widget.
+-->
+[`Expanded`][] ウィジェットを使用すると、ウィジェットを行または列に合わせてサイズ調整することができます。前の例の、画像の行がレンダリング領域に対して広すぎる問題を解決するためには、各画像を `Expanded` ウィジェットでラップします。
 
 <div class="row">
 <div class="col-lg-8">
@@ -418,11 +567,14 @@ wrap each image with an `Expanded` widget.
 </div>
 </div>
 
+<!--
 Perhaps you want a widget to occupy twice as much space as its
 siblings. For this, use the `Expanded` widget `flex` property,
 an integer that determines the flex factor for a widget.
 The default flex factor is 1. The following code sets
 the flex factor of the middle image to 2:
+-->
+あるウィジェットが他の兄弟ウィジェットの2倍のスペースを占めるようにしたいと思うかもしれません。そのためには、ウィジェットのフレックス係数を決定する整数である`Expanded`ウィジェットの`flex`プロパティを使用します。デフォルトのフレックス係数は1です。以下のコードでは、中央の画像のフレックス係数に2を設定しています：
 
 <div class="row">
 <div class="col-lg-8">
@@ -455,12 +607,15 @@ the flex factor of the middle image to 2:
 
 [sizing]: {{examples}}/layout/sizing
 
-### Packing widgets
+### ウィジェットをまとめる
 
+<!--
 By default, a row or column occupies as much space along its main axis
 as possible, but if you want to pack the children closely together,
 set its `mainAxisSize` to `MainAxisSize.min`. The following example
 uses this property to pack the star icons together.
+-->
+デフォルトでは、行(Row)または列(Column)はその主軸(main axis)に沿って可能な限り多くのスペースを占めるように配置しますが、子要素間のスペースができる限り少なくなるようにまとめたい場合は、`mainAxisSize`を`MainAxisSize.min`に設定します。以下の例では、このプロパティを使用して星のアイコンをまとめています。
 
 <div class="row">
 <div class="col-lg-8">
@@ -486,28 +641,43 @@ uses this property to pack the star icons together.
 </div>
 </div>
 
+<!--
 ### Nesting rows and columns
 
 The layout framework allows you to nest rows and columns
 inside of rows and columns as deeply as you need.
 Let's look at the code for the outlined
 section of the following layout:
+-->
+### 行と列のネスト
+
+行(Row)と列(Column)を必要なだけ他の行(Row)や列(Column)の中に深くネストすることができます。以下のレイアウトの枠線で囲まれた部分のコードを見てみましょう：
 
 <img src='/assets/images/docs/ui/layout/pavlova-large-annotated.png' class="border mw-100"
     alt="Screenshot of the pavlova app, with the ratings and icon rows outlined in red">
 {:.text-center}
 
+<!--
 The outlined section is implemented as two rows. The ratings row contains
 five stars and the number of reviews. The icons row contains three
 columns of icons and text.
 
 The widget tree for the ratings row:
+-->
+枠線で囲まれた部分は2つの行(Row)として実装されています。評価の行(Row)には5つの星とレビューの数が含まれています。アイコンの行(Row)には、アイコンとテキストの3つの列(Row)が含まれています。
+
+評価の行(Row)に対するウィジェットツリー：
+
 
 <img src='/assets/images/docs/ui/layout/widget-tree-pavlova-rating-row.png' class="mw-100" alt="Ratings row widget tree">
 {:.text-center}
 
+<!--
 The `ratings` variable creates a row containing a smaller row
 of 5 star icons, and text:
+-->
+
+ratings変数は、5つの星アイコンの小さな行(Row)とテキストを含む行(Row)を生成します：
 
 <?code-excerpt "layout/pavlova/lib/main.dart (ratings)" replace="/ratings/[!$&!]/g"?>
 ```dart
@@ -543,20 +713,30 @@ final [!ratings!] = Container(
 );
 ```
 
+<!--
 {{site.alert.tip}}
   To minimize the visual confusion that can result from
   heavily nested layout code, implement pieces of the UI
   in variables and functions.
 {{site.alert.end}}
+-->
+{{site.alert.tip}}
+  非常に深くネストされたレイアウトコードでは、読みやすくするためにUIの一部を変数や関数で実装します。
+{{site.alert.end}}
 
+<!--
 The icons row, below the ratings row, contains 3 columns;
 each column contains an icon and two lines of text,
 as you can see in its widget tree:
-
+-->
+評価行の下のアイコン行(Row)は3つの列(Column)を含んでいます。それぞれの列(Column)にはアイコンと2行のテキストが含まれています。そのウィジェットツリーは次の通りです：
 <img src='/assets/images/docs/ui/layout/widget-tree-pavlova-icon-row.png' class="mw-100" alt="Icon widget tree">
 {:.text-center}
 
+<!--
 The `iconList` variable defines the icons row:
+-->
+`iconList`変数はアイコンの行に該当します:
 
 <?code-excerpt "layout/pavlova/lib/main.dart (iconList)" replace="/iconList/[!$&!]/g"?>
 ```dart
@@ -605,8 +785,11 @@ final [!iconList!] = DefaultTextStyle.merge(
 );
 ```
 
+<!--
 The `leftColumn` variable contains the ratings and icons rows,
 as well as the title and text that describes the Pavlova:
+-->
+`leftColumn`変数には、評価とアイコンの行に加えて、ババロアについて説明するタイトルとテキストも含まれています：
 
 <?code-excerpt "layout/pavlova/lib/main.dart (leftColumn)" replace="/leftColumn/[!$&!]/g"?>
 ```dart
@@ -623,6 +806,7 @@ final [!leftColumn!] = Container(
 );
 ```
 
+<!--
 The left column is placed in a `SizedBox` to constrain its width.
 Finally, the UI is constructed with the entire row (containing the
 left column and the image) inside a `Card`.
@@ -632,6 +816,13 @@ You can embed an image from the net using `Image.network()` but,
 for this example, the image is saved to an images directory in the project,
 added to the [pubspec file][], and accessed using `Images.asset()`.
 For more information, see [Adding assets and images][].
+-->
+
+左側の列は、幅の制約をつけるためにSizedBoxに配置されています。最終的に、UIはCardの中にある全体の行（左の列と画像を含む）で構築されます。
+
+ババロアの画像[Pavlova image][]は[Pixabay][]のものを使用しています。
+Image.network()を使用してネットワーク経由で画像を読み込むことができますが、
+この例では、画像はプロジェクトのimagesディレクトリに保存され、[pubspec file][]に追加され、Images.asset()を使用してアクセスしています。詳細は[Adding assets and images][]をご覧ください。
 
 <?code-excerpt "layout/pavlova/lib/main.dart (body)"?>
 ```dart
@@ -655,6 +846,7 @@ body: Center(
 ),
 ```
 
+<!--
 {{site.alert.tip}}
   The Pavlova example runs best horizontally on a wide device,
   such as a tablet.  If you are running this example in the iOS simulator,
@@ -665,6 +857,10 @@ body: Center(
   simulator window (without changing the number of logical pixels)
   using **Window > Scale**.
 {{site.alert.end}}
+-->
+{{site.alert.tip}}
+  ババロアの例は、タブレットなどの広いデバイスで横向きにした時に最適に動作します。 iOSシミュレータでこの例を実行している場合は、**Hardware > Device**メニューを使用してデバイスを選択できます。この例では、iPad Proを推奨します。**Hardware > Rotate**を使用して、その向きをランドスケープモードに変更できます。また、**Window > Scale**を使用して、シミュレータウィンドウのサイズを変更することができます（論理ピクセルの数は変わりません）。
+{{site.alert.end}}
 
 **App source:** [pavlova]({{examples}}/layout/pavlova)
 
@@ -673,8 +869,12 @@ body: Center(
 
 <hr>
 
+<!--
 ## Common layout widgets
+-->
+## よく使用されるレイアウトウィジェット
 
+<!--
 Flutter has a rich library of layout widgets.
 Here are a few of those most commonly used.
 The intent is to get you up and running as quickly as possible,
@@ -684,43 +884,68 @@ refer to the [Widget catalog][],
 or use the Search box in the [API reference docs][].
 Also, the widget pages in the API docs often make suggestions
 about similar widgets that might better suit your needs.
+-->
+Flutterには豊富なレイアウトウィジェットのライブラリがあります。ここでは、よく使用されるものをご紹介します。全体像を把握するためリストアップしていますが、一度にすべて覚える必要はありません。他の利用可能なウィジェットについては、[Widget catalog][]を参照するか、[API reference docs][]の検索ボックスを使用してください。また、APIドキュメントのウィジェットページでは、よニーズに合っている可能性のある類似のウィジェットが掲載されています。
 
+<!--
 The following widgets fall into two categories: standard widgets
 from the [widgets library][], and specialized widgets from the
 [Material library][]. Any app can use the widgets library but
 only Material apps can use the Material Components library.
+-->
+以下のウィジェットは、[widgets library][]からの標準ウィジェットと、[Material library][]の用途に特化したウィジェットの2つのカテゴリーに分かれています。　標準ウィジェットはどのアプリでも使用できますが、Material ComponentsはMaterial Appからのみ使用できます。
 
+<!--
 ### Standard widgets
+-->
+### 標準ウィジェット
 
-* [`Container`](#container): Adds padding, margins, borders,
-  background color, or other decorations to a widget.
-* [`GridView`](#gridview): Lays widgets out as a scrollable grid.
-* [`ListView`](#listview): Lays widgets out as a scrollable list.
-* [`Stack`](#stack): Overlaps a widget on top of another.
+* [`Container`](#container): ウィジェットにパディング、マージン、ボーダー、背景色、またはその他の装飾を追加します。
+* [`GridView`](#gridview): ウィジェットをスクロール可能なグリッドとして配置します。
+* [`ListView`](#listview): ウィジェットをスクロール可能なリストとして配置します。
+* [`Stack`](#stack): 他のウィジェットの上にウィジェットを重ねます。
 
+<!--
 ### Material widgets
+-->
+### Materialウィジェット
 
+<!--
 * [`Card`](#card): Organizes related info into a box with
   rounded corners and a drop shadow.
 * [`ListTile`](#listtile): Organizes up to 3 lines of text,
   and optional leading and trailing icons, into a row.
+-->
+* [`Card`](#card): 角丸とドロップシャドウ付きのカードで関連する情報を整理します。
+* [`ListTile`](#listtile): 最大3行のテキストに、オプションで先頭と末尾にアイコンをつけて、行として整理します。
 
 ### Container
 
+<!--
 Many layouts make liberal use of [`Container`][]s to separate
 widgets using padding, or to add borders or margins.
 You can change the device's background by placing the
 entire layout into a `Container` and changing its background
 color or image.
+-->
+多くのレイアウトでは、[Container][]を積極的に使用してウィジェットの間にパッディング(Padding)を入れたり、ボーダー(Boarder)やマージン(Margin)を追加します。レイアウト全体をContainerの子要素としてに配置し、Containerの背景色や画像を変更することで、背景を変更することができます。
 
 <div class="row">
 <div class="col-lg-6" markdown="1">
+  <!--
   <h4 class="no_toc">Summary (Container)</h4>
+  -->
+  <h4 class="no_toc">Containerのまとめ</h4>
 
+  <!--
   * Add padding, margins, borders
   * Change background color or image
   * Contains a single child widget, but that child can be a Row,
     Column, or even the root of a widget tree
+  -->
+  * パディング(Padding)、マージン(Margin)、ボーダー(Border)の追加
+  * 背景色や画像の変更
+  * 単一の子ウィジェットを含み、子ウィジェットはRow、Column、またはウィジェットツリーのルートであってもよい  
 </div>
 <div class="col-lg-6 text-center">
   <img src='/assets/images/docs/ui/layout/margin-padding-border.png' class="mb-4 mw-100"
@@ -729,12 +954,17 @@ color or image.
 </div>
 </div>
 
-#### Examples (Container)
+TODO:専用のウィジェットを使うべき旨注釈を入れる
+
+#### Containerの例
 {:.no_toc}
 
+<!--
 This layout consists of a column with two rows, each containing
 2 images. A [`Container`][] is used to change the background color
 of the column to a lighter grey.
+-->
+このレイアウトは、それぞれ2つの画像が含まれる2つの行を持つ列で構成されています。[`Container`][]は、列の背景色をより薄いグレーに変更するために使用されています。
 
 <div class="row">
 <div class="col-lg-7">
@@ -761,8 +991,11 @@ of the column to a lighter grey.
 </div>
 </div>
 
+<!--
 A `Container` is also used to add a rounded border and margins
 to each image:
+-->
+`Container`は、各画像に角丸の枠とマージンを追加するためにも使用されます：
 
 <?code-excerpt "layout/container/lib/main.dart (row)" replace="/\bContainer/[!$&!]/g;"?>
 ```dart
@@ -785,8 +1018,11 @@ Widget _buildImageRow(int imageIndex) => Row(
     );
 ```
 
+<!--
 You can find more `Container` examples in the [tutorial][]
 and the Flutter Gallery ([running app][], [repo][]).
+-->
+更に多くのContainerの例は、[tutorial][]やFlutter Gallery ([running app][], [repo][])で見つけることができます。
 
 **App source:** [container]({{examples}}/layout/container)
 
@@ -794,15 +1030,19 @@ and the Flutter Gallery ([running app][], [repo][]).
 
 ### GridView
 
+<!--
 Use [`GridView`][] to lay widgets out as a two-dimensional
 list. `GridView` provides two pre-fabricated lists,
 or you can build your own custom grid. When a `GridView`
 detects that its contents are too long to fit the render box,
 it automatically scrolls.
+-->
+[`GridView`][]を使ってウィジェットを二次元リストとしてレイアウトします。`GridView`は2つのあらかじめ作られたリストを提供していますが、カスタムグリッドを自分で作ることもできます。`GridView`はその内容が表示領域に収まりきらないことを検出すると、自動的にスクロールします。
 
-#### Summary (GridView)
+#### GridViewの概要
 {:.no_toc}
 
+<!--
 * Lays widgets out in a grid
 * Detects when the column content exceeds the render box
   and automatically provides scrolling
@@ -822,18 +1062,36 @@ it automatically scrolls.
   it's the entry in the "calorie" column for the "avocado" row), use
   [`Table`][] or [`DataTable`][].
 {{site.alert.end}}
+-->
 
+* ウィジェットをグリッド(格子)にレイアウトします
+* 列の内容が表示領域を超えていることを検知し、自動的にスクロールを提供します
+* 自分でカスタムグリッドを作成するか、提供されているグリッドの一つを使用します：
+  * `GridView.count`を使用すると、列の数を指定できます
+  * `GridView.extent`を使用すると、タイルの最大ピクセル幅を指定できます
+{% comment %}
+* `MediaQuery.of(context).orientation`を使用すると、デバイスがランドスケープモード(縦)かポートレートモード(横)かに応じてレイアウトが変更されるグリッドを作成できます。
+{% endcomment %}
+
+{{site.alert.note}}
+  セルがどの行と列に配置されるかが重要な二次元リストを表示する場合（例えば、「アボカド」の行の「カロリー」列のエントリーなど）、[`Table`][]や[`DataTable`][]を使用します。
+{{site.alert.end}}
+
+<!--
 #### Examples (GridView)
+-->
+#### GridViewの例
 {:.no_toc}
 
 <div class="row">
 <div class="col-lg-6" markdown="1">
   <img src='/assets/images/docs/ui/layout/gridview-extent.png' class="mw-100" alt="A 3-column grid of photos">
   {:.text-center}
-
-  Uses `GridView.extent` to create a grid with tiles a maximum
-  150 pixels wide.
-
+<!--
+Uses `GridView.extent` to create a grid with tiles a maximum
+150 pixels wide.
+-->
+最大150ピクセル幅のタイルで構成されるグリッドを作成するために、`GridView.extent`を使用します。
   **App source:** [grid_and_list]({{examples}}/layout/grid_and_list)
 </div>
 <div class="col-lg-6" markdown="1">
@@ -841,11 +1099,15 @@ it automatically scrolls.
       alt="A 2 column grid with footers">
   {:.text-center}
 
-  Uses `GridView.count` to create a grid that's 2 tiles
-  wide in portrait mode, and 3 tiles wide in landscape mode.
-  The titles are created by setting the `footer` property for
-  each [`GridTile`][].
-
+<!--
+Uses `GridView.count` to create a grid that's 2 tiles
+wide in portrait mode, and 3 tiles wide in landscape mode.
+The titles are created by setting the `footer` property for
+each [`GridTile`][].
+-->
+  
+`GridView.count`を使用して、縦モードでは2つのタイル幅、横モードでは3つのタイル幅のグリッドを作成します。各[`GridTile`][]の`footer`プロパティを設定することでタイトルが作成されます。
+    
   **Dart code:** [grid_list_demo.dart]({{demo}}/material/grid_list_demo.dart)
   from the [Flutter Gallery][repo]
 </div>
@@ -871,20 +1133,29 @@ List<Container> _buildGridTileList(int count) => List.generate(
 
 ### ListView
 
+<!--
 [`ListView`][], a column-like widget, automatically
 provides scrolling when its content is too long for
 its render box.
+-->
+[`ListView`][]は、Columnのようなウィジェットで、内容が描画領域に収まらないほど長い場合に、自動的にスクロールします。
 
-#### Summary (ListView)
+#### ListViewの概要
 {:.no_toc}
 
+<!--
 * A specialized [`Column`][] for organizing a list of boxes
 * Can be laid out horizontally or vertically
 * Detects when its content won't fit and provides scrolling
 * Less configurable than `Column`, but easier to use and
   supports scrolling
+-->
+* ボックスのリストをまとめる目的に特化した[`Column`][]
+* 横方向または縦方向にレイアウトを設定できます
+* 内容がフィットしないときに自動的に検出し、スクロールします
+* `Column`よりは設定の自由度が少ないですが、使い方が簡単で、スクロールがサポートされています
 
-#### Examples (ListView)
+#### ListViewの例
 {:.no_toc}
 
 <div class="row">
@@ -893,10 +1164,13 @@ its render box.
       alt="ListView containing movie theaters and restaurants">
   {:.text-center}
 
+<!--
   Uses `ListView` to display a list of businesses using
   `ListTile`s. A `Divider` separates the theaters from
   the restaurants.
-
+-->
+  `ListTile`を使ってお店のリストを表示するために`ListView`を使用します。`Divider`が映画館とレストランを分けています。
+  
   **App source:** [grid_and_list]({{examples}}/layout/grid_and_list)
 </div>
 <div class="col-lg-6" markdown="1">
@@ -904,10 +1178,13 @@ its render box.
       alt="ListView containing shades of blue">
   {:.text-center}
 
+<!--
   Uses `ListView` to display the [`Colors`][] from
   the [Material Design palette][]
   for a particular color family.
-
+-->
+  特定の色の集まりに対する[Material Design palette][]の[`Colors`][]を表示するために`ListView`を使用します。
+  
   **Dart code:** [colors_demo.dart]({{demo}}/reference/colors_demo.dart) from the
   [Flutter Gallery][repo]
 </div>
@@ -955,18 +1232,27 @@ ListTile _tile(String title, String subtitle, IconData icon) {
 
 ### Stack
 
+<!--
 Use [`Stack`][] to arrange widgets on top of a base
 widget&mdash;often an image. The widgets can completely
 or partially overlap the base widget.
+-->
+基本的なウィジェット（多くの場合は画像）のウィジェットを重ねて配置するには[`Stack`][]を使用します。Stackはベースとなるウィジェットに、完全または部分的に重ね合わせることができます。
 
-#### Summary (Stack)
+#### Stackの概要
 {:.no_toc}
 
+<!--
 * Use for widgets that overlap another widget
 * The first widget in the list of children is the base widget;
   subsequent children are overlaid on top of that base widget
 * A `Stack`'s content can't scroll
 * You can choose to clip children that exceed the render box
+-->
+* 別のウィジェットを上に重ね合わせる場合に使用します
+* 子ウィジェットのリストの最初のウィジェットがベースになるウィジェットで、それ以降の子ウィジェットはベースのウィジェットの上に重ねられます
+* `Stack`の内容はスクロールすることができません
+* 描画領域を超える子ウィジェットを切り取ることを選択できます
 
 #### Examples (Stack)
 {:.no_toc}
@@ -976,20 +1262,28 @@ or partially overlap the base widget.
   <img src='/assets/images/docs/ui/layout/stack.png' class="mw-100" width="200px" alt="Circular avatar image with a label">
   {:.text-center}
 
-  Uses `Stack` to overlay a `Container`
-  (that displays its `Text` on a translucent
-  black background) on top of a `CircleAvatar`.
-  The `Stack` offsets the text using the `alignment` property and
-  `Alignment`s.
-
+<!--
+Uses `Stack` to overlay a `Container`
+(that displays its `Text` on a translucent
+black background) on top of a `CircleAvatar`.
+The `Stack` offsets the text using the `alignment` property and
+`Alignment`s.
+-->
+`Stack`を使用して`CircleAvatar`の上に`Container`（透明な黒い背景に`Text`を表示）を重ねます。 `Stack`は`alignment`プロパティと`Alignment`を使用してテキストの位置を補正します。
+  
+ 
   **App source:** [card_and_stack]({{examples}}/layout/card_and_stack)
 </div>
 <div class="col-lg-5" markdown="1">
   <img src='/assets/images/docs/ui/layout/stack-flutter-gallery.png' class="mw-100" alt="An image with a icon overlaid on top">
   {:.text-center}
 
-  Uses `Stack` to overlay an icon on top of an image.
 
+<!--
+Uses `Stack` to overlay an icon on top of an image.
+-->
+画像の上にアイコンを重ね合わせるために`Stack`を使用します。
+  
   **Dart code:** [bottom_navigation_demo.dart]({{demo}}/material/bottom_navigation_demo.dart)
   from the [Flutter Gallery][repo]
 </div>
@@ -1027,6 +1321,7 @@ Widget _buildStack() {
 
 ### Card
 
+<!--
 A [`Card`][], from the [Material library][],
 contains related nuggets of information and can
 be composed from almost any widget, but is often used with
@@ -1045,10 +1340,16 @@ surface and causes the shadow to become more dispersed.
 For a list of supported elevation values, see [Elevation][] in the
 [Material guidelines][Material Design].
 Specifying an unsupported value disables the drop shadow entirely.
+-->
+`Card`は、[Material library][]のウィジェットで、関連する情報のグループを含んでおり、ほとんどのウィジェットを元に構成することができますが、[`ListTile`][]と一緒に使用されることがよくあります。`Card`は一つの子ウィジェットを持ちますが、その子は列、行、リスト、グリッド、または複数の子ウィジェットを含む他のウィジェットを指定することができます。デフォルトでは、`Card`はサイズを0ピクセル×0ピクセルに縮小します。カードのサイズに制約を適用するために[`SizedBox`][]を使用することができます。
 
-#### Summary (Card)
+Flutterでは、`Card`はわずかに丸みを帯びた角とドロップシャドウを特徴とし、3D効果を与えています。`Card`の`elevation`プロパティを変更することで、ドロップシャドウ効果をコントロールすることができます。例えば、elevationを24に設定すると、`Card`が表面からさらに浮き上がり、シャドウがより分散するように見えます。サポートされているelevationの値の一覧については、[Material guidelines][Material Design]の[Elevation][]を参照してください。サポートされていない値を指定すると、ドロップシャドウが完全に無効になります。
+
+
+#### Cardの概要
 {:.no_toc}
 
+<!--
 * Implements a [Material card][]
 * Used for presenting related nuggets of information
 * Accepts a single child, but that child can be a `Row`,
@@ -1056,6 +1357,13 @@ Specifying an unsupported value disables the drop shadow entirely.
 * Displayed with rounded corners and a drop shadow
 * A `Card`'s content can't scroll
 * From the [Material library][]
+-->
+* [Material card][]を実装します
+* 関連する情報のグループを表示するために使用します
+* 単一の子ウィジェットを指定しますが、その子は`Row`、`Column`、または子のリストを持つ他のウィジェットを指定することができます
+* 角丸とドロップシャドウで表示されます
+* `Card`のコンテンツはスクロールできません
+* [Material library][]のウィジェットです
 
 #### Examples (Card)
 {:.no_toc}
@@ -1065,10 +1373,13 @@ Specifying an unsupported value disables the drop shadow entirely.
   <img src='/assets/images/docs/ui/layout/card.png' class="mw-100" alt="Card containing 3 ListTiles">
   {:.text-center}
 
+<!--
   A `Card` containing 3 ListTiles and sized by wrapping
   it with a `SizedBox`. A `Divider` separates the first
   and second `ListTiles`.
-
+-->
+`SizedBox`で囲んでサイズを設定した`Card`です。この`Card`には3つの`ListTile`が含まれています。`Divider`で最初と2番目の`ListTile`を分けています。
+  
   **App source:** [card_and_stack]({{examples}}/layout/card_and_stack)
 </div>
 <div class="col-lg-6" markdown="1">
@@ -1076,7 +1387,10 @@ Specifying an unsupported value disables the drop shadow entirely.
       alt="Card containing an image, text and buttons">
   {:.text-center}
 
+<!--
   A `Card` containing an image and text.
+-->
+画像とテキストが含まれた`Card`です。
 
   **Dart code:** [cards_demo.dart]({{demo}}/material/cards_demo.dart)
   from the [Flutter Gallery][repo]
