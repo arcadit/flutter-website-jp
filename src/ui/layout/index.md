@@ -1018,8 +1018,11 @@ Widget _buildImageRow(int imageIndex) => Row(
     );
 ```
 
+<!--
 You can find more `Container` examples in the [tutorial][]
 and the Flutter Gallery ([running app][], [repo][]).
+-->
+更に多くのContainerの例は、[tutorial][]やFlutter Gallery ([running app][], [repo][])で見つけることができます。
 
 **App source:** [container]({{examples}}/layout/container)
 
@@ -1027,15 +1030,19 @@ and the Flutter Gallery ([running app][], [repo][]).
 
 ### GridView
 
+<!--
 Use [`GridView`][] to lay widgets out as a two-dimensional
 list. `GridView` provides two pre-fabricated lists,
 or you can build your own custom grid. When a `GridView`
 detects that its contents are too long to fit the render box,
 it automatically scrolls.
+-->
+[`GridView`][]を使ってウィジェットを二次元リストとしてレイアウトします。`GridView`は2つのあらかじめ作られたリストを提供していますが、カスタムグリッドを自分で作ることもできます。`GridView`はその内容が表示領域に収まりきらないことを検出すると、自動的にスクロールします。
 
-#### Summary (GridView)
+#### GridViewの概要
 {:.no_toc}
 
+<!--
 * Lays widgets out in a grid
 * Detects when the column content exceeds the render box
   and automatically provides scrolling
@@ -1055,18 +1062,36 @@ it automatically scrolls.
   it's the entry in the "calorie" column for the "avocado" row), use
   [`Table`][] or [`DataTable`][].
 {{site.alert.end}}
+-->
 
+* ウィジェットをグリッド(格子)にレイアウトします
+* 列の内容が表示領域を超えていることを検知し、自動的にスクロールを提供します
+* 自分でカスタムグリッドを作成するか、提供されているグリッドの一つを使用します：
+  * `GridView.count`を使用すると、列の数を指定できます
+  * `GridView.extent`を使用すると、タイルの最大ピクセル幅を指定できます
+{% comment %}
+* `MediaQuery.of(context).orientation`を使用すると、デバイスがランドスケープモード(縦)かポートレートモード(横)かに応じてレイアウトが変更されるグリッドを作成できます。
+{% endcomment %}
+
+{{site.alert.note}}
+  セルがどの行と列に配置されるかが重要な二次元リストを表示する場合（例えば、「アボカド」の行の「カロリー」列のエントリーなど）、[`Table`][]や[`DataTable`][]を使用します。
+{{site.alert.end}}
+
+<!--
 #### Examples (GridView)
+-->
+#### GridViewの例
 {:.no_toc}
 
 <div class="row">
 <div class="col-lg-6" markdown="1">
   <img src='/assets/images/docs/ui/layout/gridview-extent.png' class="mw-100" alt="A 3-column grid of photos">
   {:.text-center}
-
-  Uses `GridView.extent` to create a grid with tiles a maximum
-  150 pixels wide.
-
+<!--
+Uses `GridView.extent` to create a grid with tiles a maximum
+150 pixels wide.
+-->
+最大150ピクセル幅のタイルで構成されるグリッドを作成するために、`GridView.extent`を使用します。
   **App source:** [grid_and_list]({{examples}}/layout/grid_and_list)
 </div>
 <div class="col-lg-6" markdown="1">
@@ -1074,11 +1099,15 @@ it automatically scrolls.
       alt="A 2 column grid with footers">
   {:.text-center}
 
-  Uses `GridView.count` to create a grid that's 2 tiles
-  wide in portrait mode, and 3 tiles wide in landscape mode.
-  The titles are created by setting the `footer` property for
-  each [`GridTile`][].
-
+<!--
+Uses `GridView.count` to create a grid that's 2 tiles
+wide in portrait mode, and 3 tiles wide in landscape mode.
+The titles are created by setting the `footer` property for
+each [`GridTile`][].
+-->
+  
+`GridView.count`を使用して、縦モードでは2つのタイル幅、横モードでは3つのタイル幅のグリッドを作成します。各[`GridTile`][]の`footer`プロパティを設定することでタイトルが作成されます。
+    
   **Dart code:** [grid_list_demo.dart]({{demo}}/material/grid_list_demo.dart)
   from the [Flutter Gallery][repo]
 </div>
@@ -1104,20 +1133,29 @@ List<Container> _buildGridTileList(int count) => List.generate(
 
 ### ListView
 
+<!--
 [`ListView`][], a column-like widget, automatically
 provides scrolling when its content is too long for
 its render box.
+-->
+[`ListView`][]は、Columnのようなウィジェットで、内容が描画領域に収まらないほど長い場合に、自動的にスクロールします。
 
-#### Summary (ListView)
+#### ListViewの概要
 {:.no_toc}
 
+<!--
 * A specialized [`Column`][] for organizing a list of boxes
 * Can be laid out horizontally or vertically
 * Detects when its content won't fit and provides scrolling
 * Less configurable than `Column`, but easier to use and
   supports scrolling
+-->
+* ボックスのリストをまとめる目的に特化した[`Column`][]
+* 横方向または縦方向にレイアウトを設定できます
+* 内容がフィットしないときに自動的に検出し、スクロールします
+* `Column`よりは設定の自由度が少ないですが、使い方が簡単で、スクロールがサポートされています
 
-#### Examples (ListView)
+#### ListViewの例
 {:.no_toc}
 
 <div class="row">
@@ -1126,10 +1164,13 @@ its render box.
       alt="ListView containing movie theaters and restaurants">
   {:.text-center}
 
+<!--
   Uses `ListView` to display a list of businesses using
   `ListTile`s. A `Divider` separates the theaters from
   the restaurants.
-
+-->
+  `ListTile`を使ってお店のリストを表示するために`ListView`を使用します。`Divider`が映画館とレストランを分けています。
+  
   **App source:** [grid_and_list]({{examples}}/layout/grid_and_list)
 </div>
 <div class="col-lg-6" markdown="1">
@@ -1137,10 +1178,13 @@ its render box.
       alt="ListView containing shades of blue">
   {:.text-center}
 
+<!--
   Uses `ListView` to display the [`Colors`][] from
   the [Material Design palette][]
   for a particular color family.
-
+-->
+  特定の色の集まりに対する[Material Design palette][]の[`Colors`][]を表示するために`ListView`を使用します。
+  
   **Dart code:** [colors_demo.dart]({{demo}}/reference/colors_demo.dart) from the
   [Flutter Gallery][repo]
 </div>
@@ -1188,18 +1232,27 @@ ListTile _tile(String title, String subtitle, IconData icon) {
 
 ### Stack
 
+<!--
 Use [`Stack`][] to arrange widgets on top of a base
 widget&mdash;often an image. The widgets can completely
 or partially overlap the base widget.
+-->
+基本的なウィジェット（多くの場合は画像）のウィジェットを重ねて配置するには[`Stack`][]を使用します。Stackはベースとなるウィジェットに、完全または部分的に重ね合わせることができます。
 
-#### Summary (Stack)
+#### Stackの概要
 {:.no_toc}
 
+<!--
 * Use for widgets that overlap another widget
 * The first widget in the list of children is the base widget;
   subsequent children are overlaid on top of that base widget
 * A `Stack`'s content can't scroll
 * You can choose to clip children that exceed the render box
+-->
+* 別のウィジェットを上に重ね合わせる場合に使用します
+* 子ウィジェットのリストの最初のウィジェットがベースになるウィジェットで、それ以降の子ウィジェットはベースのウィジェットの上に重ねられます
+* `Stack`の内容はスクロールすることができません
+* 描画領域を超える子ウィジェットを切り取ることを選択できます
 
 #### Examples (Stack)
 {:.no_toc}
@@ -1209,20 +1262,28 @@ or partially overlap the base widget.
   <img src='/assets/images/docs/ui/layout/stack.png' class="mw-100" width="200px" alt="Circular avatar image with a label">
   {:.text-center}
 
-  Uses `Stack` to overlay a `Container`
-  (that displays its `Text` on a translucent
-  black background) on top of a `CircleAvatar`.
-  The `Stack` offsets the text using the `alignment` property and
-  `Alignment`s.
-
+<!--
+Uses `Stack` to overlay a `Container`
+(that displays its `Text` on a translucent
+black background) on top of a `CircleAvatar`.
+The `Stack` offsets the text using the `alignment` property and
+`Alignment`s.
+-->
+`Stack`を使用して`CircleAvatar`の上に`Container`（透明な黒い背景に`Text`を表示）を重ねます。 `Stack`は`alignment`プロパティと`Alignment`を使用してテキストの位置を補正します。
+  
+ 
   **App source:** [card_and_stack]({{examples}}/layout/card_and_stack)
 </div>
 <div class="col-lg-5" markdown="1">
   <img src='/assets/images/docs/ui/layout/stack-flutter-gallery.png' class="mw-100" alt="An image with a icon overlaid on top">
   {:.text-center}
 
-  Uses `Stack` to overlay an icon on top of an image.
 
+<!--
+Uses `Stack` to overlay an icon on top of an image.
+-->
+画像の上にアイコンを重ね合わせるために`Stack`を使用します。
+  
   **Dart code:** [bottom_navigation_demo.dart]({{demo}}/material/bottom_navigation_demo.dart)
   from the [Flutter Gallery][repo]
 </div>
@@ -1260,6 +1321,7 @@ Widget _buildStack() {
 
 ### Card
 
+<!--
 A [`Card`][], from the [Material library][],
 contains related nuggets of information and can
 be composed from almost any widget, but is often used with
@@ -1278,10 +1340,16 @@ surface and causes the shadow to become more dispersed.
 For a list of supported elevation values, see [Elevation][] in the
 [Material guidelines][Material Design].
 Specifying an unsupported value disables the drop shadow entirely.
+-->
+`Card`は、[Material library][]のウィジェットで、関連する情報のグループを含んでおり、ほとんどのウィジェットを元に構成することができますが、[`ListTile`][]と一緒に使用されることがよくあります。`Card`は一つの子ウィジェットを持ちますが、その子は列、行、リスト、グリッド、または複数の子ウィジェットを含む他のウィジェットを指定することができます。デフォルトでは、`Card`はサイズを0ピクセル×0ピクセルに縮小します。カードのサイズに制約を適用するために[`SizedBox`][]を使用することができます。
 
-#### Summary (Card)
+Flutterでは、`Card`はわずかに丸みを帯びた角とドロップシャドウを特徴とし、3D効果を与えています。`Card`の`elevation`プロパティを変更することで、ドロップシャドウ効果をコントロールすることができます。例えば、elevationを24に設定すると、`Card`が表面からさらに浮き上がり、シャドウがより分散するように見えます。サポートされているelevationの値の一覧については、[Material guidelines][Material Design]の[Elevation][]を参照してください。サポートされていない値を指定すると、ドロップシャドウが完全に無効になります。
+
+
+#### Cardの概要
 {:.no_toc}
 
+<!--
 * Implements a [Material card][]
 * Used for presenting related nuggets of information
 * Accepts a single child, but that child can be a `Row`,
@@ -1289,6 +1357,13 @@ Specifying an unsupported value disables the drop shadow entirely.
 * Displayed with rounded corners and a drop shadow
 * A `Card`'s content can't scroll
 * From the [Material library][]
+-->
+* [Material card][]を実装します
+* 関連する情報のグループを表示するために使用します
+* 単一の子ウィジェットを指定しますが、その子は`Row`、`Column`、または子のリストを持つ他のウィジェットを指定することができます
+* 角丸とドロップシャドウで表示されます
+* `Card`のコンテンツはスクロールできません
+* [Material library][]のウィジェットです
 
 #### Examples (Card)
 {:.no_toc}
@@ -1298,10 +1373,13 @@ Specifying an unsupported value disables the drop shadow entirely.
   <img src='/assets/images/docs/ui/layout/card.png' class="mw-100" alt="Card containing 3 ListTiles">
   {:.text-center}
 
+<!--
   A `Card` containing 3 ListTiles and sized by wrapping
   it with a `SizedBox`. A `Divider` separates the first
   and second `ListTiles`.
-
+-->
+`SizedBox`で囲んでサイズを設定した`Card`です。この`Card`には3つの`ListTile`が含まれています。`Divider`で最初と2番目の`ListTile`を分けています。
+  
   **App source:** [card_and_stack]({{examples}}/layout/card_and_stack)
 </div>
 <div class="col-lg-6" markdown="1">
@@ -1309,7 +1387,10 @@ Specifying an unsupported value disables the drop shadow entirely.
       alt="Card containing an image, text and buttons">
   {:.text-center}
 
+<!--
   A `Card` containing an image and text.
+-->
+画像とテキストが含まれた`Card`です。
 
   **Dart code:** [cards_demo.dart]({{demo}}/material/cards_demo.dart)
   from the [Flutter Gallery][repo]
