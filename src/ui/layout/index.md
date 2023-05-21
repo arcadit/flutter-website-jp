@@ -646,7 +646,7 @@ inside of rows and columns as deeply as you need.
 Let's look at the code for the outlined
 section of the following layout:
 -->
-### 行と列のネスト化
+### 行と列のネスト
 
 行(Row)と列(Column)を必要なだけ他の行(Row)や列(Column)の中に深くネストすることができます。以下のレイアウトの枠線で囲まれた部分のコードを見てみましょう：
 
@@ -918,20 +918,31 @@ only Material apps can use the Material Components library.
 
 ### Container
 
+<!--
 Many layouts make liberal use of [`Container`][]s to separate
 widgets using padding, or to add borders or margins.
 You can change the device's background by placing the
 entire layout into a `Container` and changing its background
 color or image.
+-->
+多くのレイアウトでは、[Container][]を積極的に使用してウィジェットの間にパッディング(Padding)を入れたり、ボーダー(Boarder)やマージン(Margin)を追加します。レイアウト全体をContainerの子要素としてに配置し、Containerの背景色や画像を変更することで、背景を変更することができます。
 
 <div class="row">
 <div class="col-lg-6" markdown="1">
+  <!--
   <h4 class="no_toc">Summary (Container)</h4>
+  -->
+  <h4 class="no_toc">Containerのまとめ</h4>
 
+  <!--
   * Add padding, margins, borders
   * Change background color or image
   * Contains a single child widget, but that child can be a Row,
     Column, or even the root of a widget tree
+  -->
+  * パディング(Padding)、マージン(Margin)、ボーダー(Border)の追加
+  * 背景色や画像の変更
+  * 単一の子ウィジェットを含み、子ウィジェットはRow、Column、またはウィジェットツリーのルートであってもよい  
 </div>
 <div class="col-lg-6 text-center">
   <img src='/assets/images/docs/ui/layout/margin-padding-border.png' class="mb-4 mw-100"
@@ -940,12 +951,17 @@ color or image.
 </div>
 </div>
 
-#### Examples (Container)
+TODO:専用のウィジェットを使うべき旨注釈を入れる
+
+#### Containerの例
 {:.no_toc}
 
+<!--
 This layout consists of a column with two rows, each containing
 2 images. A [`Container`][] is used to change the background color
 of the column to a lighter grey.
+-->
+このレイアウトは、それぞれ2つの画像が含まれる2つの行を持つ列で構成されています。[`Container`][]は、列の背景色をより薄いグレーに変更するために使用されています。
 
 <div class="row">
 <div class="col-lg-7">
@@ -972,8 +988,11 @@ of the column to a lighter grey.
 </div>
 </div>
 
+<!--
 A `Container` is also used to add a rounded border and margins
 to each image:
+-->
+`Container`は、各画像に角丸の枠とマージンを追加するためにも使用されます：
 
 <?code-excerpt "layout/container/lib/main.dart (row)" replace="/\bContainer/[!$&!]/g;"?>
 ```dart
