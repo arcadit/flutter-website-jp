@@ -782,8 +782,11 @@ final [!iconList!] = DefaultTextStyle.merge(
 );
 ```
 
+<!--
 The `leftColumn` variable contains the ratings and icons rows,
 as well as the title and text that describes the Pavlova:
+-->
+`leftColumn`変数には、評価とアイコンの行に加えて、ババロアについて説明するタイトルとテキストも含まれています：
 
 <?code-excerpt "layout/pavlova/lib/main.dart (leftColumn)" replace="/leftColumn/[!$&!]/g"?>
 ```dart
@@ -800,6 +803,7 @@ final [!leftColumn!] = Container(
 );
 ```
 
+<!--
 The left column is placed in a `SizedBox` to constrain its width.
 Finally, the UI is constructed with the entire row (containing the
 left column and the image) inside a `Card`.
@@ -809,6 +813,13 @@ You can embed an image from the net using `Image.network()` but,
 for this example, the image is saved to an images directory in the project,
 added to the [pubspec file][], and accessed using `Images.asset()`.
 For more information, see [Adding assets and images][].
+-->
+
+左側の列は、幅の制約をつけるためにSizedBoxに配置されています。最終的に、UIはCardの中にある全体の行（左の列と画像を含む）で構築されます。
+
+ババロアの画像[Pavlova image][]は[Pixabay][]のものを使用しています。
+Image.network()を使用してネットワーク経由で画像を読み込むことができますが、
+この例では、画像はプロジェクトのimagesディレクトリに保存され、[pubspec file][]に追加され、Images.asset()を使用してアクセスしています。詳細は[Adding assets and images][]をご覧ください。
 
 <?code-excerpt "layout/pavlova/lib/main.dart (body)"?>
 ```dart
@@ -832,6 +843,7 @@ body: Center(
 ),
 ```
 
+<!--
 {{site.alert.tip}}
   The Pavlova example runs best horizontally on a wide device,
   such as a tablet.  If you are running this example in the iOS simulator,
@@ -842,6 +854,10 @@ body: Center(
   simulator window (without changing the number of logical pixels)
   using **Window > Scale**.
 {{site.alert.end}}
+-->
+{{site.alert.tip}}
+  ババロアの例は、タブレットなどの広いデバイスで横向きにした時に最適に動作します。 iOSシミュレータでこの例を実行している場合は、**Hardware > Device**メニューを使用してデバイスを選択できます。この例では、iPad Proを推奨します。**Hardware > Rotate**を使用して、その向きをランドスケープモードに変更できます。また、**Window > Scale**を使用して、シミュレータウィンドウのサイズを変更することができます（論理ピクセルの数は変わりません）。
+{{site.alert.end}}
 
 **App source:** [pavlova]({{examples}}/layout/pavlova)
 
@@ -850,8 +866,12 @@ body: Center(
 
 <hr>
 
+<!--
 ## Common layout widgets
+-->
+## よく使用されるレイアウトウィジェット
 
+<!--
 Flutter has a rich library of layout widgets.
 Here are a few of those most commonly used.
 The intent is to get you up and running as quickly as possible,
@@ -861,26 +881,40 @@ refer to the [Widget catalog][],
 or use the Search box in the [API reference docs][].
 Also, the widget pages in the API docs often make suggestions
 about similar widgets that might better suit your needs.
+-->
+Flutterには豊富なレイアウトウィジェットのライブラリがあります。ここでは、よく使用されるものをご紹介します。全体像を把握するためリストアップしていますが、一度にすべて覚える必要はありません。他の利用可能なウィジェットについては、[Widget catalog][]を参照するか、[API reference docs][]の検索ボックスを使用してください。また、APIドキュメントのウィジェットページでは、よニーズに合っている可能性のある類似のウィジェットが掲載されています。
 
+<!--
 The following widgets fall into two categories: standard widgets
 from the [widgets library][], and specialized widgets from the
 [Material library][]. Any app can use the widgets library but
 only Material apps can use the Material Components library.
+-->
+以下のウィジェットは、[widgets library][]からの標準ウィジェットと、[Material library][]の用途に特化したウィジェットの2つのカテゴリーに分かれています。　標準ウィジェットはどのアプリでも使用できますが、Material ComponentsはMaterial Appからのみ使用できます。
 
+<!--
 ### Standard widgets
+-->
+### 標準ウィジェット
 
-* [`Container`](#container): Adds padding, margins, borders,
-  background color, or other decorations to a widget.
-* [`GridView`](#gridview): Lays widgets out as a scrollable grid.
-* [`ListView`](#listview): Lays widgets out as a scrollable list.
-* [`Stack`](#stack): Overlaps a widget on top of another.
+* [`Container`](#container): ウィジェットにパディング、マージン、ボーダー、背景色、またはその他の装飾を追加します。
+* [`GridView`](#gridview): ウィジェットをスクロール可能なグリッドとして配置します。
+* [`ListView`](#listview): ウィジェットをスクロール可能なリストとして配置します。
+* [`Stack`](#stack): 他のウィジェットの上にウィジェットを重ねます。
 
+<!--
 ### Material widgets
+-->
+### Materialウィジェット
 
+<!--
 * [`Card`](#card): Organizes related info into a box with
   rounded corners and a drop shadow.
 * [`ListTile`](#listtile): Organizes up to 3 lines of text,
   and optional leading and trailing icons, into a row.
+-->
+* [`Card`](#card): 角丸とドロップシャドウ付きのカードで関連する情報を整理します。
+* [`ListTile`](#listtile): 最大3行のテキストに、オプションで先頭と末尾にアイコンをつけて、行として整理します。
 
 ### Container
 
